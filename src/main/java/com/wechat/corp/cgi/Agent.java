@@ -1,7 +1,7 @@
 package com.wechat.corp.cgi;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONObject;
 
@@ -24,8 +24,8 @@ public abstract class Agent {
 	 */
 	public static JSONObject get(String agentid, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String getUrl = MessageFormat.format(Constants.URL_AGENT_GET, accessToken, agentid);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, Constants.URL_AGENT_GET, agentid);
+		String getUrl = MessageFormat.format(WXCorpConstants.URL_AGENT_GET, accessToken, agentid);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, WXCorpConstants.URL_AGENT_GET, agentid);
 	}
 
 	/**
@@ -37,9 +37,9 @@ public abstract class Agent {
 	 */
 	public static JSONObject set(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String setUrl = MessageFormat.format(Constants.URL_AGENT_SET, accessToken);
+		String setUrl = MessageFormat.format(WXCorpConstants.URL_AGENT_SET, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(setUrl, msg)), wc, msg, Constants.URL_AGENT_SET);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(setUrl, msg)), wc, msg, WXCorpConstants.URL_AGENT_SET);
 	}
 
 	/**
@@ -51,8 +51,8 @@ public abstract class Agent {
 	 */
 	public static JSONObject list(WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String listUrl = MessageFormat.format(Constants.URL_AGENT_LIST, accessToken);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, Constants.URL_AGENT_LIST);
+		String listUrl = MessageFormat.format(WXCorpConstants.URL_AGENT_LIST, accessToken);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, WXCorpConstants.URL_AGENT_LIST);
 	}
 
 }

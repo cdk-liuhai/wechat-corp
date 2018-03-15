@@ -1,7 +1,7 @@
 package com.wechat.corp.cgi;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONObject;
 
@@ -24,9 +24,9 @@ public abstract class Department {
 	 */
 	public static JSONObject create(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String createUrl = MessageFormat.format(Constants.URL_DEPARTMENT_CREATE, accessToken);
+		String createUrl = MessageFormat.format(WXCorpConstants.URL_DEPARTMENT_CREATE, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, Constants.URL_DEPARTMENT_CREATE);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, WXCorpConstants.URL_DEPARTMENT_CREATE);
 	}
 
 	/**
@@ -38,9 +38,9 @@ public abstract class Department {
 	 */
 	public static JSONObject update(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String updateUrl = MessageFormat.format(Constants.URL_DEPARTMENT_UPDATE, accessToken);
+		String updateUrl = MessageFormat.format(WXCorpConstants.URL_DEPARTMENT_UPDATE, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(updateUrl, msg)), wc, msg, Constants.URL_DEPARTMENT_UPDATE);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(updateUrl, msg)), wc, msg, WXCorpConstants.URL_DEPARTMENT_UPDATE);
 	}
 
 	/**
@@ -52,8 +52,8 @@ public abstract class Department {
 	 */
 	public static JSONObject delete(String id, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String deleteUrl = MessageFormat.format(Constants.URL_DEPARTMENT_DELETE, accessToken, id);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, Constants.URL_DEPARTMENT_DELETE, id);
+		String deleteUrl = MessageFormat.format(WXCorpConstants.URL_DEPARTMENT_DELETE, accessToken, id);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, WXCorpConstants.URL_DEPARTMENT_DELETE, id);
 	}
 
 	/**
@@ -65,9 +65,9 @@ public abstract class Department {
 	 */
 	public static JSONObject list(String id, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String listUrl = MessageFormat.format(Constants.URL_DEPARTMENT_LIST, accessToken, id);
+		String listUrl = MessageFormat.format(WXCorpConstants.URL_DEPARTMENT_LIST, accessToken, id);
 		String respJson = wc.get(listUrl);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, Constants.URL_DEPARTMENT_LIST, id);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, WXCorpConstants.URL_DEPARTMENT_LIST, id);
 	}
 
 }

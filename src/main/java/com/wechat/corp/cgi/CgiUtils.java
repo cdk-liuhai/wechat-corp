@@ -3,7 +3,7 @@ package com.wechat.corp.cgi;
 import com.wechat.corp.bean.MpnewsItem;
 import com.wechat.corp.bean.NewsItem;
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -31,9 +31,9 @@ public abstract class CgiUtils {
 	 * @Date: 2018/3/14 12:10
 	 */
 	public static boolean refreshAccessToken(JSONObject json) {
-		if (json.containsKey(Constants.RESP_ERRCODE)) {
-			String errcode = json.getString(Constants.RESP_ERRCODE);
-			if (Constants.ILLEGAL_TOKEN.equals(errcode) || Constants.OVERDUE_TOKEN.equals(errcode)) {
+		if (json.containsKey(WXCorpConstants.RESP_ERRCODE)) {
+			String errcode = json.getString(WXCorpConstants.RESP_ERRCODE);
+			if (WXCorpConstants.ILLEGAL_TOKEN.equals(errcode) || WXCorpConstants.OVERDUE_TOKEN.equals(errcode)) {
 				return true;
 			}
 		}
@@ -171,7 +171,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_TEXT);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_TEXT);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}
@@ -203,7 +203,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_IMAGE);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_IMAGE);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}
@@ -235,7 +235,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_VOICE);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_VOICE);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}
@@ -267,7 +267,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_VIDEO);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_VIDEO);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}
@@ -301,7 +301,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_FILE);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_FILE);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}
@@ -333,7 +333,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_NEWS);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_NEWS);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}
@@ -371,7 +371,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_MPNEWS);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_MPNEWS);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}
@@ -408,7 +408,7 @@ public abstract class CgiUtils {
 		if (StringUtils.isNotBlank(totag)) {
 			json.put("totag", totag);
 		}
-		json.put("msgtype", Constants.MSGTYPE_MPNEWS);
+		json.put("msgtype", WXCorpConstants.MSGTYPE_MPNEWS);
 		if (StringUtils.isNotBlank(agentid)) {
 			json.put("agentid", agentid);
 		}

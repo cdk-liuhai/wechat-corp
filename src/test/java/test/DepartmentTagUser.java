@@ -1,13 +1,11 @@
 package test;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.cgi.CgiUtils;
 import com.wechat.corp.cgi.Department;
 import com.wechat.corp.cgi.User;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.HttpClientFactory;
 import com.wechat.corp.connect.WechatClientHCE;
-import net.sf.json.JSONObject;
 import org.apache.http.client.HttpClient;
 
 import java.security.KeyManagementException;
@@ -18,8 +16,8 @@ public class DepartmentTagUser {
 
 	public static void main(String[] args) {
 		try {
-			WechatClientHCE wc = new WechatClientHCE(Constants.getCorpElement(Constants.CORP2, Constants.CORP_ID),
-					Constants.getCorpElement(Constants.CORP2, Constants.MEMEBERS_SECRET));
+			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.CORP_ID),
+					WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.MEMEBERS_SECRET));
 			HttpClient httpClient = HttpClientFactory.createHttpClient();
 			wc.setHttpClient(httpClient);
 

@@ -3,7 +3,7 @@ package test;
 
 import com.wechat.corp.bean.WechatException;
 import com.wechat.corp.cgi.Media;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.DownLoadHandler;
 import com.wechat.corp.connect.HttpClientFactory;
 import com.wechat.corp.connect.WechatClientHCE;
@@ -20,8 +20,8 @@ public class MediaMaterial {
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		try {
-			WechatClientHCE wc = new WechatClientHCE(Constants.getCorpElement(Constants.CORP1, Constants.CORP_ID),
-					Constants.getCorpElement(Constants.CORP1, Constants.MEMEBERS_SECRET));
+			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID),
+					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.MEMEBERS_SECRET));
 			HttpClient httpClient = HttpClientFactory.createHttpClient();
 			wc.setHttpClient(httpClient);
 

@@ -1,7 +1,7 @@
 package com.wechat.corp.cgi;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONObject;
 
@@ -22,8 +22,8 @@ public abstract class User {
 	 */
 	public static JSONObject authsucc(String userid, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String authsuccUrl = MessageFormat.format(Constants.URL_USER_AUTHSUCC, accessToken, userid);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(authsuccUrl)), wc, null, Constants.URL_USER_AUTHSUCC, userid);
+		String authsuccUrl = MessageFormat.format(WXCorpConstants.URL_USER_AUTHSUCC, accessToken, userid);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(authsuccUrl)), wc, null, WXCorpConstants.URL_USER_AUTHSUCC, userid);
 	}
 
 	/**
@@ -35,9 +35,9 @@ public abstract class User {
 	 */
 	public static JSONObject create(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String createUrl = MessageFormat.format(Constants.URL_USER_CREATE, accessToken);
+		String createUrl = MessageFormat.format(WXCorpConstants.URL_USER_CREATE, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, Constants.URL_USER_CREATE);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, WXCorpConstants.URL_USER_CREATE);
 	}
 
 	/**
@@ -49,9 +49,9 @@ public abstract class User {
 	 */
 	public static JSONObject update(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String updateUrl = MessageFormat.format(Constants.URL_USER_UPDATE, accessToken);
+		String updateUrl = MessageFormat.format(WXCorpConstants.URL_USER_UPDATE, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(updateUrl, msg)), wc, msg, Constants.URL_USER_UPDATE);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(updateUrl, msg)), wc, msg, WXCorpConstants.URL_USER_UPDATE);
 	}
 
 	/**
@@ -63,8 +63,8 @@ public abstract class User {
 	 */
 	public static JSONObject delete(String id, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String deleteUrl = MessageFormat.format(Constants.URL_USER_DELETE, accessToken, id);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, Constants.URL_USER_DELETE);
+		String deleteUrl = MessageFormat.format(WXCorpConstants.URL_USER_DELETE, accessToken, id);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, WXCorpConstants.URL_USER_DELETE);
 	}
 
 	/**
@@ -76,9 +76,9 @@ public abstract class User {
 	 */
 	public static JSONObject batchDelete(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String batchDeleteUrl = MessageFormat.format(Constants.URL_USER_BATCHDELETE, accessToken);
+		String batchDeleteUrl = MessageFormat.format(WXCorpConstants.URL_USER_BATCHDELETE, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(batchDeleteUrl, msg)), wc, msg, Constants.URL_USER_BATCHDELETE);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(batchDeleteUrl, msg)), wc, msg, WXCorpConstants.URL_USER_BATCHDELETE);
 	}
 
 	/**
@@ -90,9 +90,9 @@ public abstract class User {
 	 */
 	public static JSONObject get(String id, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String getUrl = MessageFormat.format(Constants.URL_USER_GET, accessToken, id);
+		String getUrl = MessageFormat.format(WXCorpConstants.URL_USER_GET, accessToken, id);
 		String respJson = wc.get(getUrl);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, Constants.URL_USER_GET, id);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, WXCorpConstants.URL_USER_GET, id);
 	}
 
 	/**
@@ -105,8 +105,8 @@ public abstract class User {
 	public static JSONObject simpleList(String departmentId, String fetchChild, WechatClient wc)
 			throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String simpleListUrl = MessageFormat.format(Constants.URL_USER_SIMPLELIST, accessToken, departmentId, fetchChild);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(simpleListUrl)), wc, null, Constants.URL_USER_SIMPLELIST, departmentId,fetchChild);
+		String simpleListUrl = MessageFormat.format(WXCorpConstants.URL_USER_SIMPLELIST, accessToken, departmentId, fetchChild);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(simpleListUrl)), wc, null, WXCorpConstants.URL_USER_SIMPLELIST, departmentId,fetchChild);
 	}
 
 	/**
@@ -119,8 +119,8 @@ public abstract class User {
 	public static JSONObject list(String departmentId, String fetchChild, WechatClient wc)
 			throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String listUrl = MessageFormat.format(Constants.URL_USER_LIST, accessToken, departmentId, fetchChild);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, Constants.URL_USER_LIST, departmentId, fetchChild);
+		String listUrl = MessageFormat.format(WXCorpConstants.URL_USER_LIST, accessToken, departmentId, fetchChild);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, WXCorpConstants.URL_USER_LIST, departmentId, fetchChild);
 	}
 
 	/**
@@ -132,8 +132,8 @@ public abstract class User {
 	 */
 	public static JSONObject getuserinfo(String code, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String getuserinfoUrl = MessageFormat.format(Constants.URL_USER_GETUSERINFO, accessToken, code);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getuserinfoUrl)), wc, null, Constants.URL_USER_GETUSERINFO, code);
+		String getuserinfoUrl = MessageFormat.format(WXCorpConstants.URL_USER_GETUSERINFO, accessToken, code);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getuserinfoUrl)), wc, null, WXCorpConstants.URL_USER_GETUSERINFO, code);
 	}
 
 	/**
@@ -145,8 +145,8 @@ public abstract class User {
 	 */
 	public static JSONObject getUserDetail(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String sendUrl = MessageFormat.format(Constants.URL_USER_DETAIL, accessToken);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(sendUrl, msgJson.toString())), wc, msgJson.toString(), Constants.URL_USER_DETAIL);
+		String sendUrl = MessageFormat.format(WXCorpConstants.URL_USER_DETAIL, accessToken);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(sendUrl, msgJson.toString())), wc, msgJson.toString(), WXCorpConstants.URL_USER_DETAIL);
 	}
 
 	/**
@@ -158,9 +158,9 @@ public abstract class User {
 	 */
 	public static JSONObject convertToOpenid(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String convertToOpenidUrl = MessageFormat.format(Constants.URL_USER_CONVERTTOOPENID, accessToken);
+		String convertToOpenidUrl = MessageFormat.format(WXCorpConstants.URL_USER_CONVERTTOOPENID, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(convertToOpenidUrl, msg)), wc, msg, Constants.URL_USER_CONVERTTOOPENID);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(convertToOpenidUrl, msg)), wc, msg, WXCorpConstants.URL_USER_CONVERTTOOPENID);
 	}
 
 	/**
@@ -172,9 +172,9 @@ public abstract class User {
 	 */
 	public static JSONObject convertToUserid(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String convertToUseridUrl = MessageFormat.format(Constants.URL_USER_CONVERTTOUSERID, accessToken);
+		String convertToUseridUrl = MessageFormat.format(WXCorpConstants.URL_USER_CONVERTTOUSERID, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(convertToUseridUrl, msg)), wc, msg, Constants.URL_USER_CONVERTTOUSERID);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(convertToUseridUrl, msg)), wc, msg, WXCorpConstants.URL_USER_CONVERTTOUSERID);
 	}
 
 }

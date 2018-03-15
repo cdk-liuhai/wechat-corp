@@ -1,7 +1,7 @@
 package com.wechat.corp.cgi;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONObject;
 
@@ -24,9 +24,9 @@ public abstract class Tag {
 	 */
 	public static JSONObject create(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String createUrl = MessageFormat.format(Constants.URL_TAG_CREATE, accessToken);
+		String createUrl = MessageFormat.format(WXCorpConstants.URL_TAG_CREATE, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, Constants.URL_TAG_CREATE);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, WXCorpConstants.URL_TAG_CREATE);
 	}
 
 	/**
@@ -38,9 +38,9 @@ public abstract class Tag {
 	 */
 	public static JSONObject update(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String updateUrl = MessageFormat.format(Constants.URL_TAG_UPDATE, accessToken);
+		String updateUrl = MessageFormat.format(WXCorpConstants.URL_TAG_UPDATE, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(updateUrl, msg)), wc, msg, Constants.URL_TAG_UPDATE);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(updateUrl, msg)), wc, msg, WXCorpConstants.URL_TAG_UPDATE);
 	}
 
 	/**
@@ -52,8 +52,8 @@ public abstract class Tag {
 	 */
 	public static JSONObject delete(String tagid, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String deleteUrl = MessageFormat.format(Constants.URL_TAG_DELETE, accessToken, tagid);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, Constants.URL_TAG_DELETE, tagid);
+		String deleteUrl = MessageFormat.format(WXCorpConstants.URL_TAG_DELETE, accessToken, tagid);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, WXCorpConstants.URL_TAG_DELETE, tagid);
 	}
 
 	/**
@@ -65,8 +65,8 @@ public abstract class Tag {
 	 */
 	public static JSONObject get(String tagid, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String getUrl = MessageFormat.format(Constants.URL_TAG_GET, accessToken, tagid);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, Constants.URL_TAG_GET, tagid);
+		String getUrl = MessageFormat.format(WXCorpConstants.URL_TAG_GET, accessToken, tagid);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, WXCorpConstants.URL_TAG_GET, tagid);
 	}
 
 	/**
@@ -78,9 +78,9 @@ public abstract class Tag {
 	 */
 	public static JSONObject addtagusers(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String addtagusersUrl = MessageFormat.format(Constants.URL_TAG_ADDTAGUSERS, accessToken);
+		String addtagusersUrl = MessageFormat.format(WXCorpConstants.URL_TAG_ADDTAGUSERS, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(addtagusersUrl, msg)), wc, msg, Constants.URL_TAG_ADDTAGUSERS);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(addtagusersUrl, msg)), wc, msg, WXCorpConstants.URL_TAG_ADDTAGUSERS);
 	}
 
 	/**
@@ -92,9 +92,9 @@ public abstract class Tag {
 	 */
 	public static JSONObject deltagusers(JSONObject msgJson, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String deltagusersUrl = MessageFormat.format(Constants.URL_TAG_DELTAGUSERS, accessToken);
+		String deltagusersUrl = MessageFormat.format(WXCorpConstants.URL_TAG_DELTAGUSERS, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(deltagusersUrl, msg)), wc, msg, Constants.URL_TAG_DELTAGUSERS);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(deltagusersUrl, msg)), wc, msg, WXCorpConstants.URL_TAG_DELTAGUSERS);
 	}
 
 	/**
@@ -106,8 +106,8 @@ public abstract class Tag {
 	 */
 	public static JSONObject list(WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String listUrl = MessageFormat.format(Constants.URL_TAG_LIST, accessToken);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, Constants.URL_TAG_LIST);
+		String listUrl = MessageFormat.format(WXCorpConstants.URL_TAG_LIST, accessToken);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(listUrl)), wc, null, WXCorpConstants.URL_TAG_LIST);
 	}
 
 }

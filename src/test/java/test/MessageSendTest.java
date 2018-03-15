@@ -5,7 +5,7 @@ import com.wechat.corp.bean.NewsItem;
 import com.wechat.corp.bean.WechatException;
 import com.wechat.corp.cgi.CgiUtils;
 import com.wechat.corp.cgi.Message;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.common.TimeUtil;
 import com.wechat.corp.connect.HttpClientFactory;
 import com.wechat.corp.connect.WechatClientHCE;
@@ -26,8 +26,8 @@ public class MessageSendTest {
 
     public static void main(String[] args) {
         try {
-            WechatClientHCE wc = new WechatClientHCE(Constants.getCorpElement(Constants.CORP1, Constants.CORP_ID),
-                    Constants.getCorpElement(Constants.CORP1, Constants.TEST_SECRET));
+            WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID),
+                    WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_SECRET));
             HttpClient httpClient = HttpClientFactory.createHttpClient();
             wc.setHttpClient(httpClient);
 
@@ -60,7 +60,7 @@ public class MessageSendTest {
             newsItems.add(replyNewsItem1);
 
             JSONObject messageNews = CgiUtils.getMessageNews("LIULH", null, null,
-                    Constants.getCorpElement(Constants.CORP1, Constants.TEST_AGENTID), newsItems);
+                    WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_AGENTID), newsItems);
             System.out.println("mpnews消息：" + Message.send(messageNews, wc, wc.getAccessToken()));
         } catch (WechatException e) {
             e.printStackTrace();

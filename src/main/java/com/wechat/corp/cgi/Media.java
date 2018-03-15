@@ -1,7 +1,7 @@
 package com.wechat.corp.cgi;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.DownLoadHandler;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONObject;
@@ -32,7 +32,7 @@ public abstract class Media {
 	 */
 	public static JSONObject upload(String type, File file, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String uploadUrl = MessageFormat.format(Constants.URL_MEDIA_UPLOAD, accessToken, type);
+		String uploadUrl = MessageFormat.format(WXCorpConstants.URL_MEDIA_UPLOAD, accessToken, type);
 		String respJson = wc.upLoad(uploadUrl, file);
 		return JSONObject.fromObject(respJson);
 	}
@@ -46,7 +46,7 @@ public abstract class Media {
 	 */
 	public static JSONObject get(String mediaId, OutputStream os, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String getUrl = MessageFormat.format(Constants.URL_MEDIA_GET, accessToken, mediaId);
+		String getUrl = MessageFormat.format(WXCorpConstants.URL_MEDIA_GET, accessToken, mediaId);
 		String respJson = wc.download(getUrl, os);
 		return respJson == null ? null : JSONObject.fromObject(respJson);
 	}
@@ -60,7 +60,7 @@ public abstract class Media {
 	 */
 	public static JSONObject get(String mediaId, DownLoadHandler handler, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String getUrl = MessageFormat.format(Constants.URL_MEDIA_GET, accessToken, mediaId);
+		String getUrl = MessageFormat.format(WXCorpConstants.URL_MEDIA_GET, accessToken, mediaId);
 		String respJson = wc.download(getUrl, handler);
 		return respJson == null ? null : JSONObject.fromObject(respJson);
 	}
@@ -74,7 +74,7 @@ public abstract class Media {
 	 */
 	public static JSONObject uploadimg(File file, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String uploadimgUrl = MessageFormat.format(Constants.URL_MEDIA_UPLOADIMG, accessToken);
+		String uploadimgUrl = MessageFormat.format(WXCorpConstants.URL_MEDIA_UPLOADIMG, accessToken);
 		String respJson = wc.upload(uploadimgUrl, file);
 		return JSONObject.fromObject(respJson);
 	}
@@ -95,7 +95,7 @@ public abstract class Media {
 		JSONObject jsonObject = new JSONObject();
 		String accessToken = wc.getAccessToken();
 		// 拼装请求地址
-		String uploadMediaUrl = MessageFormat.format(Constants.URL_MEDIA_UPLOADIMG, accessToken);
+		String uploadMediaUrl = MessageFormat.format(WXCorpConstants.URL_MEDIA_UPLOADIMG, accessToken);
 
 		// 定义数据分隔符
 		String boundary = "------------7da2e536604c8";

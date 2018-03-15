@@ -1,7 +1,7 @@
 package com.wechat.corp.cgi;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONObject;
 
@@ -23,9 +23,9 @@ public abstract class Message {
 	 * @Date: 2018/3/14 15:54
 	 */
 	public static JSONObject send(JSONObject msgJson, WechatClient wc, String accessToken) throws WechatException {
-		String sendUrl = MessageFormat.format(Constants.URL_MESSAGE_SEND, accessToken);
+		String sendUrl = MessageFormat.format(WXCorpConstants.URL_MESSAGE_SEND, accessToken);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(sendUrl, msg)), wc, msg, Constants.URL_MESSAGE_SEND);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(sendUrl, msg)), wc, msg, WXCorpConstants.URL_MESSAGE_SEND);
 	}
 
 }

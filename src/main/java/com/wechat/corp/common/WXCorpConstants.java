@@ -19,9 +19,9 @@ import java.util.Map;
  * @Date: 2018/3/14 15:59
  * @Modified By:
  */
-public class Constants {
+public class WXCorpConstants {
 
-	private transient static final Logger LOGGER = LoggerFactory.getLogger(Constants.class);
+	private transient static final Logger LOGGER = LoggerFactory.getLogger(WXCorpConstants.class);
 
 	public static final String CORP1 = "aialmCorp";
 	public static final String CORP2 = "asiainfoCorp";
@@ -43,7 +43,7 @@ public class Constants {
 			//创建DocumentBuilder对象
 			DocumentBuilder b = a.newDocumentBuilder();
 			//通过DocumentBuilder对象parse方法返回一个Document对象
-			Document document = b.parse(Constants.class.getClassLoader().getResource("wechat_corp.xml").getFile());
+			Document document = b.parse(WXCorpConstants.class.getClassLoader().getResource("wechat_corp.xml").getFile());
 			//通过Document对象的getElementsByTagName()返根节点
 			Node rootCorp = document.getElementsByTagName("rootCorp").item(0);
 			//解析rootCorp节点的子节点

@@ -1,7 +1,7 @@
 package com.wechat.corp.cgi;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.WechatClient;
 import net.sf.json.JSONObject;
 
@@ -24,9 +24,9 @@ public abstract class Menu {
 	 */
 	public static JSONObject create(JSONObject msgJson, String agentid, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String createUrl = MessageFormat.format(Constants.URL_MENU_CREATE, accessToken, agentid);
+		String createUrl = MessageFormat.format(WXCorpConstants.URL_MENU_CREATE, accessToken, agentid);
 		String msg = msgJson.toString();
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, Constants.URL_MENU_CREATE, agentid);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.post(createUrl, msg)), wc, msg, WXCorpConstants.URL_MENU_CREATE, agentid);
 	}
 
 	/**
@@ -38,8 +38,8 @@ public abstract class Menu {
 	 */
 	public static JSONObject delete(String agentid, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String deleteUrl = MessageFormat.format(Constants.URL_MENU_DELETE, accessToken, agentid);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, Constants.URL_MENU_DELETE, agentid);
+		String deleteUrl = MessageFormat.format(WXCorpConstants.URL_MENU_DELETE, accessToken, agentid);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(deleteUrl)), wc, null, WXCorpConstants.URL_MENU_DELETE, agentid);
 
 	}
 
@@ -52,8 +52,8 @@ public abstract class Menu {
 	 */
 	public static JSONObject get(String agentid, WechatClient wc) throws WechatException {
 		String accessToken = wc.getAccessToken();
-		String getUrl = MessageFormat.format(Constants.URL_MENU_GET, accessToken, agentid);
-		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, Constants.URL_MENU_GET, agentid);
+		String getUrl = MessageFormat.format(WXCorpConstants.URL_MENU_GET, accessToken, agentid);
+		return CgiUtils.toRequest(JSONObject.fromObject(wc.get(getUrl)), wc, null, WXCorpConstants.URL_MENU_GET, agentid);
 	}
 
 }

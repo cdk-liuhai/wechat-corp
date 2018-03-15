@@ -1,7 +1,7 @@
 package com.wechat.corp.connect;
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 
@@ -95,14 +95,14 @@ public class WechatClientHCE extends WechatClientHC {
 			}
 		}
 		//拼装获取accessToken的tokenUrl
-		String getTokenUrl = MessageFormat.format(Constants.URL_GETTOKEN, corpId, corpSecret);
+		String getTokenUrl = MessageFormat.format(WXCorpConstants.URL_GETTOKEN, corpId, corpSecret);
 		//发送获取accessToken请求
 		String respJson = get(getTokenUrl);
 		JSONObject jsonObject = JSONObject.fromObject(respJson);
-		if (jsonObject.containsKey(Constants.RESP_ACCESS_TOKEN)) {
+		if (jsonObject.containsKey(WXCorpConstants.RESP_ACCESS_TOKEN)) {
 			//更新对应应用的accessToken和失效时间
-			accessToken.put(corpSecret, jsonObject.getString(Constants.RESP_ACCESS_TOKEN));
-			String expiresIn = jsonObject.getString(Constants.RESP_EXPIRES_IN);
+			accessToken.put(corpSecret, jsonObject.getString(WXCorpConstants.RESP_ACCESS_TOKEN));
+			String expiresIn = jsonObject.getString(WXCorpConstants.RESP_EXPIRES_IN);
 			expires.put(corpSecret, now + Integer.parseInt(expiresIn) * 1000);
 			return accessToken.get(corpSecret);
 		}

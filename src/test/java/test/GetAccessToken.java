@@ -2,7 +2,7 @@ package test;
 
 
 import com.wechat.corp.bean.WechatException;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.HttpClientFactory;
 import com.wechat.corp.connect.WechatClientHCE;
 import org.apache.http.client.HttpClient;
@@ -15,8 +15,8 @@ public class GetAccessToken {
 
 	public static void main(String[] args) {
 		try {
-			WechatClientHCE wc = new WechatClientHCE(Constants.getCorpElement(Constants.CORP1, Constants.CORP_ID),
-					Constants.getCorpElement(Constants.CORP1, Constants.TEST_SECRET));
+			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID),
+					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_SECRET));
 			HttpClient httpClient = HttpClientFactory.createHttpClient();
 			wc.setHttpClient(httpClient);
 

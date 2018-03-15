@@ -1,4 +1,4 @@
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import org.junit.Test;
 
 import java.text.MessageFormat;
@@ -16,9 +16,9 @@ public class TestFunc {
 
     @Test
     public void testXml() {
-        System.out.println(Constants.getCorpElement("corp1.CorpID"));
-        System.out.println(Constants.getCorpElement("corp2.CorpID"));
-        System.out.println(Constants.getCorpElement(Constants.CORP1, Constants.CORP_ID));
+        System.out.println(WXCorpConstants.getCorpElement("corp1.CorpID"));
+        System.out.println(WXCorpConstants.getCorpElement("corp2.CorpID"));
+        System.out.println(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID));
     }
 
     @Test

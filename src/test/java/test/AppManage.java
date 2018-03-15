@@ -18,8 +18,7 @@ package test;
 import com.wechat.corp.bean.WechatException;
 import com.wechat.corp.cgi.Agent;
 import com.wechat.corp.cgi.CgiUtils;
-import com.wechat.corp.cgi.Menu;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import com.wechat.corp.connect.HttpClientFactory;
 import com.wechat.corp.connect.WechatClientHCE;
 import net.sf.json.JSONObject;
@@ -30,14 +29,14 @@ import java.security.NoSuchAlgorithmException;
 public class AppManage {
 	
 	public static void main(String[] args) {
-		String corpid1 = Constants.getCorpElement(Constants.CORP1, Constants.CORP_ID);
-		String corpid2 = Constants.getCorpElement(Constants.CORP2, Constants.CORP_ID);
+		String corpid1 = WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID);
+		String corpid2 = WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.CORP_ID);
 
-		String testAssistantSecret = Constants.getCorpElement(Constants.CORP1, Constants.TEST_SECRET);
-		String testAssistantAgentId = Constants.getCorpElement(Constants.CORP1, Constants.TEST_AGENTID);
+		String testAssistantSecret = WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_SECRET);
+		String testAssistantAgentId = WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_AGENTID);
 		
-		String testSecret = Constants.getCorpElement(Constants.CORP2, Constants.TEST_SECRET);
-		String testAgentId = Constants.getCorpElement(Constants.CORP2, Constants.TEST_AGENTID);
+		String testSecret = WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_SECRET);
+		String testAgentId = WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_AGENTID);
 		try {
 			WechatClientHCE wc = new WechatClientHCE(corpid2, testSecret);
 

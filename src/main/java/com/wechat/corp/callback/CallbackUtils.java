@@ -1,7 +1,7 @@
 package com.wechat.corp.callback;
 
 import com.wechat.corp.bean.NewsItem;
-import com.wechat.corp.common.Constants;
+import com.wechat.corp.common.WXCorpConstants;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -62,7 +62,7 @@ public abstract class CallbackUtils {
 		String textFormatString = "<xml>\n" + "<ToUserName><![CDATA[{0}]]></ToUserName>\n"
 				+ "<FromUserName><![CDATA[{1}]]></FromUserName>\n" + "<CreateTime>{2}</CreateTime>\n"
 				+ "<MsgType><![CDATA[{3}]]></MsgType>\n" + "<Content><![CDATA[{4}]]></Content>\n" + "</xml>";
-		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, Constants.MSGTYPE_TEXT,
+		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, WXCorpConstants.MSGTYPE_TEXT,
 				content);
 	}
 
@@ -78,7 +78,7 @@ public abstract class CallbackUtils {
 				+ "<FromUserName><![CDATA[{1}]]></FromUserName>\n" + "<CreateTime>{2}</CreateTime>\n"
 				+ "<MsgType><![CDATA[{3}]]></MsgType>\n" + "<Image>\n" + "<MediaId><![CDATA[{4}]]></MediaId>\n"
 				+ "</Image>\n" + "</xml>";
-		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, Constants.MSGTYPE_IMAGE,
+		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, WXCorpConstants.MSGTYPE_IMAGE,
 				mediaId);
 	}
 
@@ -94,7 +94,7 @@ public abstract class CallbackUtils {
 				+ "<FromUserName><![CDATA[{1}]]></FromUserName>\n" + "<CreateTime>{2}</CreateTime>\n"
 				+ "<MsgType><![CDATA[{3}]]></MsgType>\n" + "<Voice>\n" + "<MediaId><![CDATA[{4}]]></MediaId>\n"
 				+ "</Voice>\n" + "</xml>";
-		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, Constants.MSGTYPE_VOICE,
+		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, WXCorpConstants.MSGTYPE_VOICE,
 				mediaId);
 	}
 
@@ -112,7 +112,7 @@ public abstract class CallbackUtils {
 				+ "<MsgType><![CDATA[{3}]]></MsgType>\n" + "<Video>\n" + "<MediaId><![CDATA[{4}]]></MediaId>\n"
 				+ "<Title><![CDATA[{5}]]></Title>\n" + "<Description><![CDATA[{6}]]></Description>\n" + "</Video>\n"
 				+ "</xml>";
-		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, Constants.MSGTYPE_VIDEO,
+		return MessageFormat.format(textFormatString, toUserName, fromUserName, createTime, WXCorpConstants.MSGTYPE_VIDEO,
 				mediaId, title, description);
 	}
 
@@ -137,7 +137,7 @@ public abstract class CallbackUtils {
 		sb.append(createTime);
 		sb.append("</CreateTime>\n");
 		sb.append("<MsgType><![CDATA[");
-		sb.append(Constants.MSGTYPE_NEWS);
+		sb.append(WXCorpConstants.MSGTYPE_NEWS);
 		sb.append("]]></MsgType>\n");
 		sb.append("<ArticleCount>");
 		sb.append(articleCount);
