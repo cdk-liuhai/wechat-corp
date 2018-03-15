@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- 打印控制台日志 -->
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c [%t] %x - %m%n" />
+		</layout>
+	</appender>
+	<!-- 按天打印日志 -->
+	<appender name="wechat_corp" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="Append" value="true" />
+		<param name="ImmediateFlush" value="true" />
+		<!--配置文件路径 -->
+		<param name="File" value="../logs/wechat_corp.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] [%t] - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.wechat.corp">
+		<level value="debug" />
+		<appender-ref ref="wechat_corp" />
+	</logger>
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="stdout" />
+	</root>
+</log4j:configuration>
