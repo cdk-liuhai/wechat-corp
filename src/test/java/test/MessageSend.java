@@ -28,8 +28,8 @@ public class MessageSend {
 			/*
 			 * 第一个应用
 			 */
-			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID),
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_SECRET));
+			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(Constants.CORP1, Constants.CORP_ID),
+					WXCorpConstants.getCorpElement(Constants.CORP1, Constants.TEST_SECRET));
 			HttpClient httpClient = HttpClientFactory.createHttpClient();
 			wc.setHttpClient(httpClient);
 
@@ -47,21 +47,21 @@ public class MessageSend {
 
 			System.out.println("发送video消息。");
 			JSONObject json3 = CgiUtils.getMessageVideo("LIULH", null, null,
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_AGENTID), mediaId2, "video消息", "这是一条测试视频消息！", 0);
+					WXCorpConstants.getCorpElement(Constants.CORP1, Constants.TEST_AGENTID), mediaId2, "video消息", "这是一条测试视频消息！", 0);
 			System.out.println("video消息：" + Message.send(json3, wc, wc.getAccessToken()));
 
 //---------------------------------------------------------------------------------------------------------
 
 			System.out.println("发送file消息。");
 			JSONObject json4 = CgiUtils.getMessageFile("LIULH", null, null,
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_AGENTID), mediaId3, 0);
+					WXCorpConstants.getCorpElement(Constants.CORP1, Constants.TEST_AGENTID), mediaId3, 0);
 			System.out.println("file消息：" + Message.send(json4, wc, wc.getAccessToken()));
 
 //---------------------------------------------------------------------------------------------------------
 
 			System.out.println("发送text消息。");
 			JSONObject json0 = CgiUtils.getMessageText("LIULH", null, null,
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_AGENTID), "text消息，这是一条测试消息！", 0);
+					WXCorpConstants.getCorpElement(Constants.CORP1, Constants.TEST_AGENTID), "text消息，这是一条测试消息！", 0);
 			System.out.println("text消息：" + Message.send(json0, wc, wc.getAccessToken()));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,8 +69,8 @@ public class MessageSend {
 			/*
 			 * 第二个应用
 			 */
-			wc.setCorpId(WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.CORP_ID));
-			wc.setCorpSecret(WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_SECRET));
+			wc.setCorpId(WXCorpConstants.getCorpElement(Constants.CORP2, Constants.CORP_ID));
+			wc.setCorpSecret(WXCorpConstants.getCorpElement(Constants.CORP2, Constants.TEST_SECRET));
 
 			System.out.println("上传临时素材。");
 			File f0 = new File(MediaMaterial.class.getClassLoader().getResource("1.jpg").getFile());
@@ -82,7 +82,7 @@ public class MessageSend {
 
 			System.out.println("发送image消息。");
 			JSONObject json1 = CgiUtils.getMessageImage("llh", null, null,
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_AGENTID), mediaId0, 0);
+					WXCorpConstants.getCorpElement(Constants.CORP2, Constants.TEST_AGENTID), mediaId0, 0);
 			System.out.println("image消息：" + Message.send(json1, wc, wc.getAccessToken()));
 
 //---------------------------------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ public class MessageSend {
 			newsItems.add(newsItem2);
 
 			JSONObject json5 = CgiUtils.getMessageNews("llh", null, null,
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_AGENTID), newsItems);
+					WXCorpConstants.getCorpElement(Constants.CORP2, Constants.TEST_AGENTID), newsItems);
 			System.out.println("news消息：" + Message.send(json5, wc, wc.getAccessToken()));
 
 //---------------------------------------------------------------------------------------------------------
@@ -157,7 +157,7 @@ public class MessageSend {
 			mpnewsItems.add(mpnewsItem2);
 
 			JSONObject json6 = CgiUtils.getMessageMpnews("llh", null, null,
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_AGENTID), mpnewsItems, 0);
+					WXCorpConstants.getCorpElement(Constants.CORP2, Constants.TEST_AGENTID), mpnewsItems, 0);
 			System.out.println("mpnews消息：" + Message.send(json6, wc, wc.getAccessToken()));
 		} catch (WechatException e) {
 			e.printStackTrace();

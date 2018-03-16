@@ -16,8 +16,8 @@ public class DepartmentTagUser {
 
 	public static void main(String[] args) {
 		try {
-			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.CORP_ID),
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.MEMEBERS_SECRET));
+			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(Constants.CORP2, Constants.CORP_ID),
+					WXCorpConstants.getCorpElement(Constants.CORP2, Constants.MEMEBERS_SECRET));
 			HttpClient httpClient = HttpClientFactory.createHttpClient();
 			wc.setHttpClient(httpClient);
 

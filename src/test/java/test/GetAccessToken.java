@@ -15,8 +15,8 @@ public class GetAccessToken {
 
 	public static void main(String[] args) {
 		try {
-			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID),
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_SECRET));
+			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(Constants.CORP1, Constants.CORP_ID),
+					WXCorpConstants.getCorpElement(Constants.CORP1, Constants.TEST_SECRET));
 			HttpClient httpClient = HttpClientFactory.createHttpClient();
 			wc.setHttpClient(httpClient);
 

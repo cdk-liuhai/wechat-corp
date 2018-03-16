@@ -16,9 +16,9 @@ public class TestFunc {
 
     @Test
     public void testXml() {
-        System.out.println(WXCorpConstants.getCorpElement("corp1.CorpID"));
-        System.out.println(WXCorpConstants.getCorpElement("corp2.CorpID"));
-        System.out.println(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID));
+        System.out.println(WXCorpConstants.getCorpElement("aialmCorp.CorpID"));
+        System.out.println(WXCorpConstants.getCorpElement("asiainfoCorp.CorpID"));
+        System.out.println(WXCorpConstants.getCorpElement(Constants.CORP1, Constants.CORP_ID));
     }
 
     @Test

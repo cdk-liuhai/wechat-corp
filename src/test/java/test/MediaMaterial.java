@@ -20,8 +20,8 @@ public class MediaMaterial {
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		try {
-			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID),
-					WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.MEMEBERS_SECRET));
+			WechatClientHCE wc = new WechatClientHCE(WXCorpConstants.getCorpElement(Constants.CORP1, Constants.CORP_ID),
+					WXCorpConstants.getCorpElement(Constants.CORP1, Constants.MEMEBERS_SECRET));
 			HttpClient httpClient = HttpClientFactory.createHttpClient();
 			wc.setHttpClient(httpClient);
 

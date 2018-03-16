@@ -29,14 +29,14 @@ import java.security.NoSuchAlgorithmException;
 public class AppManage {
 	
 	public static void main(String[] args) {
-		String corpid1 = WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.CORP_ID);
-		String corpid2 = WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.CORP_ID);
+		String corpid1 = WXCorpConstants.getCorpElement(Constants.CORP1, Constants.CORP_ID);
+		String corpid2 = WXCorpConstants.getCorpElement(Constants.CORP2, Constants.CORP_ID);
 
-		String testAssistantSecret = WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_SECRET);
-		String testAssistantAgentId = WXCorpConstants.getCorpElement(WXCorpConstants.CORP1, WXCorpConstants.TEST_AGENTID);
+		String testAssistantSecret = WXCorpConstants.getCorpElement(Constants.CORP1, Constants.TEST_SECRET);
+		String testAssistantAgentId = WXCorpConstants.getCorpElement(Constants.CORP1, Constants.TEST_AGENTID);
 		
-		String testSecret = WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_SECRET);
-		String testAgentId = WXCorpConstants.getCorpElement(WXCorpConstants.CORP2, WXCorpConstants.TEST_AGENTID);
+		String testSecret = WXCorpConstants.getCorpElement(Constants.CORP2, Constants.TEST_SECRET);
+		String testAgentId = WXCorpConstants.getCorpElement(Constants.CORP2, Constants.TEST_AGENTID);
 		try {
 			WechatClientHCE wc = new WechatClientHCE(corpid2, testSecret);
 
