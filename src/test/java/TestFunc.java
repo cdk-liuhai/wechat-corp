@@ -1,5 +1,6 @@
 import com.wechat.corp.common.WXCorpConstants;
 import org.junit.Test;
+import test.Constants;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;

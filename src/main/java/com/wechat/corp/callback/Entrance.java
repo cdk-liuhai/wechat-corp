@@ -78,10 +78,10 @@ public class Entrance {
 		 * 3.解密出echostr原文，将原文当作Get请求的response，返回给公众平台
 		 * 第2，3步可以用公众平台提供的库函数VerifyURL来实现。
 		 */
-		String sVerifyMsgSig = request.getParameter("msg_signature");
-		String sVerifyTimeStamp = request.getParameter("timestamp");
-		String sVerifyNonce = request.getParameter("nonce");
-		String sVerifyEchoStr = request.getParameter("echostr");
+		String sVerifyMsgSig = request.getParameter(WXCorpConstants.MSG_SIGNATURE);
+		String sVerifyTimeStamp = request.getParameter(WXCorpConstants.TIMESTAMP);
+		String sVerifyNonce = request.getParameter(WXCorpConstants.NONCE);
+		String sVerifyEchoStr = request.getParameter(WXCorpConstants.ECHOSTR);
 		// 需要返回的明文
 		String sEchoStr = wxcpt.VerifyURL(sVerifyMsgSig, sVerifyTimeStamp, sVerifyNonce, sVerifyEchoStr);
 		PrintWriter out = response.getWriter();
@@ -102,9 +102,9 @@ public class Entrance {
 		 * 3.将post请求的数据进行xml解析，并将<Encrypt>标签的内容进行解密，解密出来的明文即是用户回复消息的明文
 		 * ，明文格式请参考官方文档 第2，3步可以用公众平台提供的库函数DecryptMsg来实现。
 		 */
-		String sReqMsgSig = request.getParameter("msg_signature");
-		String sReqTimeStamp = request.getParameter("timestamp");
-		String sReqNonce = request.getParameter("nonce");
+		String sReqMsgSig = request.getParameter(WXCorpConstants.MSG_SIGNATURE);
+		String sReqTimeStamp = request.getParameter(WXCorpConstants.TIMESTAMP);
+		String sReqNonce = request.getParameter(WXCorpConstants.NONCE);
 		StringBuffer data = new StringBuffer();
 		String temp = null;
 		BufferedReader buffer = request.getReader();

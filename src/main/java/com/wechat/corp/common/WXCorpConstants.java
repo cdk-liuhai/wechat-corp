@@ -87,6 +87,11 @@ public class WXCorpConstants {
 		return value;
 	}
 
+	public final static String MSG_SIGNATURE = "msg_signature";
+	public final static String TIMESTAMP = "timestamp";
+	public static final String NONCE = "nonce";
+	public static final String ECHOSTR = "echostr";
+
 	//OAuth2.0鉴权
 	public final static String LOCAL_PAGE_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 	//获取accessToken
